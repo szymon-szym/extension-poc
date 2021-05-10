@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Chrome Extension Starter",
+  "name": "Add blocker",
   "version": "1.0.0",
   "description": "",
   "icons": {
@@ -33,6 +33,9 @@
     "assets/icons/*.png"
   ],
   "permissions": [
-    "*://*/*"
+    "<all_urls>",
+    "*://*/*",
+    "storage",
+    "identity"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "es5",
     "module": "ESNext",
     "lib": [
       "DOM",
@@ -21,7 +21,7 @@
     "baseUrl": "./",
     "paths": {},
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types", "node_modules/web-ext-types"
     ],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

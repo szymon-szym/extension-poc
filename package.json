@@ -1,7 +1,7 @@
 {
   "name": "chrome-extension-ts-starter",
-  "version": "1.0.0",
-  "description": "Chrome Extension starter built with TypeScript and Parcel",
+  "version": "1.2.0",
+  "description": "Add blocker extension",
   "main": "index.js",
   "scripts": {
     "build:bg": "parcel build src/background/index.ts -d dist/background",
@@ -10,20 +10,20 @@
     "build:popup": "parcel build src/popup/index.html -d dist/popup --public-url ./",
     "build:devtools": "parcel build src/devtools/index.html -d dist/devtools --public-url ./",
     "build:devtools:app": "parcel build src/devtools/app/index.html -d dist/devtools/app --public-url ./",
-    "build": "npm run build:bg && npm run build:content && npm run build:options && npm run build:popup && npm run build:devtools && npm run build:devtools:app",
+    "build": "copyfiles manifest.json assets/**/* dist && npm run build:bg && npm run build:content && npm run build:options && npm run build:popup && npm run build:devtools && npm run build:devtools:app",
     "clean": "rimraf dist",
     "copy:static": "copyfiles manifest.json assets/**/* dist",
     "dist": "npm run clean && npm run build && npm run copy:static",
     "lint": "eslint --ext .ts,.tsx ./src",
     "test": "jest -c ./config/jest.config.js"
   },
-  "author": "Yuri Drabik <yurist38@mail.ru>",
+  "author": "Szymon Mich <szymon@yandex.ru>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-typescript": "^7.9.0",
-    "@types/chrome": "^0.0.114",
+    "@types/chrome": "0.0.114",
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.5",
     "@types/react-dom": "^16.9.8",
@@ -42,7 +42,8 @@
     "sass": "^1.26.5",
     "ts-jest": "^26.0.0",
     "typescript": "^3.9.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "web-ext-types": "github:kelseasy/web-ext-types"
   },
   "dependencies": {
     "react": "^16.13.1",
