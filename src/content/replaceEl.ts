@@ -1,4 +1,5 @@
 import { ImageElement } from "@slack/types";
+import { disconnect } from "process";
 import { fetchElement } from "./content_svc";
 import { LogsType, postAddsLogs } from "./postLogs";
 
@@ -49,23 +50,11 @@ export const replaceEl = (
 
   div.setAttribute("data-blocker-ignore", `true`);
 
-  div.insertAdjacentHTML("afterbegin", fetchElement().html);
+  const iframe = document.createElement('iframe')
+  iframe.src = "https://affectionate-johnson-2cb41c.netlify.app/"
+  iframe.setAttribute("style", "height: 100%; width: 100%; overflow: hidden; border: none;");
 
-  const anchor = div.firstChild;
-  if (anchor instanceof Element) {
-    anchor.setAttribute("width", "100%");
-    anchor.setAttribute("height", "100%");
-    anchor.setAttribute("style", "max-height: 100%; max-width: 100%;");
-  }
-
-  const img = anchor?.firstChild;
-
-  if (img instanceof Element) {
-    img.setAttribute("width", "auto");
-    img.setAttribute("height", "100%");
-    img.setAttribute("style", "max-height: 100%; max-width: 100%;");
-
-  }
+  div.appendChild(iframe)
 
   div.addEventListener("click", () => {
     postAddsLogs(1, LogsType.CLICK);
