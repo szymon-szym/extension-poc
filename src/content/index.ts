@@ -1,9 +1,9 @@
 /* eslint-disable */
 import { initialReplacements } from "./initialReplacements";
 import { mutationReplacementsBuilder } from "./mutationReplacements";
-import { LogsType, postAddsLogs } from "./postLogs";
-import { replaceEl } from "./replaceEl";
-import { clearWP } from "./wp";
+
+
+
 console.log("[content] content script running");
 
 const fullBlockList = ["onet.pl", "wp.pl", "o2.pl"];
@@ -15,7 +15,7 @@ initialReplacements(fullBlockList, doc);
 /// ***** OBSERVER *****
 // for observer
 const iframesIdsToReplace = ["google_ads_"];
-const divsIdsToReplace = ["adsense"];
+const divsIdsToReplace = ["adsense", "ad_unit"];
 const iframesSrcToReplace = ["ads", "Ads", "ad", "adv"];
 // const iframeToLeave = ["/riemann.pl/adserver"]
 
